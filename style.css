@@ -1,0 +1,147 @@
+
+/* Navbar */
+nav {
+    background: #ce1c1c !important;
+    box-shadow: 1px 1px 2px #4444;
+}
+
+nav .navbar-brand {
+    color: rgb(46, 196, 151);
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+navbar-toggler {
+    outline: none !important;
+    padding: none !important;
+}
+
+[id]::before {
+    content: "";
+    display: block;
+    height: 70px;
+    /* Same as the height of the navbar */
+    margin-top: -70px;
+    /* Negative margin equal to the height of the navbar */
+    visibility: hidden;
+}
+
+/* Corousel */
+.carousel-inner .carousel-item {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-inner .carousel-item::before {
+    content: '';
+    background-color: rgba(12, 11, 10, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.carousel-inner .carousel-caption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 37%;
+    left: 0;
+    right: 0;
+
+}
+
+.carousel-inner .carousel-caption span {
+    color: orange;
+}
+
+.carousel-inner .carousel-caption h2 {
+    color: #fff;
+
+    font-size: 42px;
+    font-weight: 600;
+    width: 80%;
+    margin: 0px auto 10px auto;
+}
+
+.carousel-inner .carousel-caption p {
+    font-size: 20px;
+    width: 80%;
+    margin: 0px auto 20px auto;
+}
+
+@media(max-width: 768px) {
+    .carousel-inner .carousel-caption h2 {
+        font-size: 38px;
+    }
+}
+
+@media(max-width: 577px) {
+    .carousel-inner .carousel-caption h2 {
+        font-size: 25px;
+    }
+
+    .carousel-inner .carousel-caption p {
+        font-size: 13px;
+    }
+}
+
+/* Section Head */
+.section-heading {
+    color: orange;
+}
+
+/* galeri */
+.galeri .box {
+    padding: 10px 10px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.galeri .box img {
+    padding: 10px 10px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* sejarah */
+
+.history-item img {
+    float: left;
+    margin-right: 20px;
+    max-width: 300px;
+    max-height: 250px;
+}
+
+/* visimisi */
+.column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .column {
+        margin: 10px 0;
+    }
+}
+
+
+/* footer */
