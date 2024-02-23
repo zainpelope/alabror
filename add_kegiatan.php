@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $tmpName = $foto['tmp_name'];
             $fileType = $foto['type'];
 
-            $allowedTypes = array("image/jpeg", "image/jpg", "image/png");
+            $allowedTypes = array("image/jpeg", "image/jpg", "image/png", "application/pdf");
 
             if (!in_array($fileType, $allowedTypes)) {
-                $notification = "Jenis file tidak didukung. Hanya file JPEG, JPG, dan PNG yang diizinkan.";
+                $notification = "Jenis file tidak didukung. Hanya file JPEG, JPG, PNG, atau PDF yang diizinkan.";
             } else {
                 $uploadDir = "uploads/";
 
@@ -161,8 +161,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="judul">Judul:</label>
             <input type="text" id="judul" name="judul">
 
-            <label for="foto">Foto:</label>
-            <input type="file" id="foto" name="foto" accept=".jpg, .jpeg, .png">
+            <label for="foto">Foto / pdf:</label>
+            <input type="file" id="foto" name="foto" accept=".jpg, .jpeg, .png, .pdf">
+
 
             <label for="deskripsi">Deskripsi:</label>
             <textarea id="deskripsi" name="deskripsi"></textarea>

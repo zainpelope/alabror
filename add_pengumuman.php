@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $tmpName = $foto['tmp_name'];
             $fileType = $foto['type'];
 
-            $allowedTypes = array("image/jpeg", "image/jpg", "image/png");
+            $allowedTypes = array("image/jpeg", "image/jpg", "image/png", "application/pdf");
 
             if (!in_array($fileType, $allowedTypes)) {
-                $notification = "Jenis file tidak didukung. Hanya file JPEG, JPG, dan PNG yang diizinkan.";
+                $notification = "Jenis file tidak didukung. Hanya file JPEG, JPG, PNG, atau PDF yang diizinkan.";
             } else {
                 $uploadDir = "uploads/";
 
@@ -65,86 +65,86 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1em 0;
-    }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
 
-    main {
-        max-width: 600px;
-        margin: 20px auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    form {
-        display: flex;
-        flex-direction: column;
-    }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
 
-    label {
-        margin-bottom: 8px;
-    }
+        label {
+            margin-bottom: 8px;
+        }
 
-    input {
-        padding: 8px;
-        margin-bottom: 16px;
-    }
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
 
-    #deskripsi {
-        height: 100px;
-        resize: vertical;
-        padding: 8px;
-        margin-bottom: 16px;
-    }
+        #deskripsi {
+            height: 100px;
+            resize: vertical;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
 
-    button {
-        padding: 10px;
-        background-color: #333;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
+        button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 
-    footer {
-        text-align: center;
-        padding: 1em 0;
-        background-color: #333;
-        color: white;
-    }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+        }
 
-    .kembali {
-        padding: 10px;
-        background-color: #808080;
-        color: white;
-        border: none;
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        margin-top: 6px;
-    }
+        .kembali {
+            padding: 10px;
+            background-color: #808080;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-top: 6px;
+        }
     </style>
     <script>
-    $(function() {
-        $("#tanggal").datepicker({
-            dateFormat: 'yy-mm-dd'
+        $(function() {
+            $("#tanggal").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
         });
-    });
     </script>
 </head>
 
@@ -154,14 +154,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <main>
         <?php if (!empty($notification)) : ?>
-        <div style="color: green; margin-bottom: 10px;"><?php echo $notification; ?></div>
+            <div style="color: green; margin-bottom: 10px;"><?php echo $notification; ?></div>
         <?php endif; ?>
         <form id="pengumumanForm" action="" method="post" enctype="multipart/form-data">
             <label for="judul">Judul:</label>
             <input type="text" id="judul" name="judul">
 
-            <label for="foto">Foto:</label>
-            <input type="file" id="foto" name="foto" accept=".jpg, .jpeg, .png">
+            <label for="foto">Foto / pdf:</label>
+            <input type="file" id="foto" name="foto" accept=".jpg, .jpeg, .png, .pdf">
 
             <label for="deskripsi">Deskripsi:</label>
             <textarea id="deskripsi" name="deskripsi"></textarea>
